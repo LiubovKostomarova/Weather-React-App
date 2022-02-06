@@ -7,6 +7,7 @@ import { BiMenu } from "react-icons/bi";
 import Button from '@mui/material/Button';
 import './Sidebar.css';
 import Chart from '../Chart';
+import ForecastFetch from './ForecastFetch';
 
 const Sidebar = () => {
   const { country, temperature,  weatherCondition, dayOfWeek, date, month, year, searchCity } = React.useContext(WeatherContext);
@@ -36,8 +37,8 @@ const Sidebar = () => {
        <BiMenu size={25} />
             
        <div className='spacer'></div>
-
-      <Chart/>
+<ForecastFetch/>
+<Chart/>
    
        
       </div>
