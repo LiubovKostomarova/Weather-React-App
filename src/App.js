@@ -1,16 +1,14 @@
 import React from 'react'
 import './App.css';
-import Header from './components/Header';
-import LeftInfo from './components/LeftInfo.js';
-import Sidebar from './components/Sidebar';
-import background from "./images/background.jpg";
-
+import Header from './components/Header/Header' ;
+import LeftInfo from './components/LeftInfo/LeftInfo.js';
+import Sidebar from './components/Sidebar/Sidebar';
 
 
 function App() {
   return (
     <>
-      <section className='container' style={{ backgroundImage: `url(${background})` }}>
+      <section className='container' >
         <Header />
         <LeftInfo />
         <Sidebar />
