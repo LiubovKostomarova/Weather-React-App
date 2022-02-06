@@ -7,7 +7,7 @@ const Chart = () => {
     datasets: [
       {
         data: [0, 2, 10, 8, 5],
-        borderColor: "#ffffff",
+        borderColor: "#811D1D",
         fill: true,
         lineTension: 0.5
       }

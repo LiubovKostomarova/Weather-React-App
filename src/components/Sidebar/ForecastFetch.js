@@ -25,8 +25,8 @@ return (res=>res.json())
     console.log(data);
     setIsLoading(false);
     setIconID(data.weather[0].icon);
-    setTempMin(data.forecast.temperature.min);
-    setTempMax(data.list.temp.max);
+    setTempMin(data.list[i].temp.min);
+    setTempMax(data.list[i].temp.max);
 })
 .catch(error => {
     
@@ -37,8 +37,6 @@ return (
     <>
     {error && <p>{error}</p>}
     {isLoading && <p>Loading...</p>}
-
-    <h1 className="Forecast__title">days</h1>
     
     <img src={"http://openweathermap.org/img/wn/" + iconID + ".png"} alt='icon' />
     <div className="Forecast__temperature">
