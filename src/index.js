@@ -8,9 +8,9 @@ import { WeatherProvider } from './components/Context';
 
 ReactDOM.render(
   <React.StrictMode>
-    <WeatherProvider>
+   <WeatherProvider>
       <App />
-    </WeatherProvider>
+      </WeatherProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
