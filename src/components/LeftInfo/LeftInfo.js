@@ -17,6 +17,7 @@ const LeftInfo = () => {
           <h2>Palermo</h2>
           <p>Sicily</p>
           <p> <CurrentTime /> </p>
+          <hr className='left-info dashed_line'></hr>
         </div>
       </div>
     </>
