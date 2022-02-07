@@ -38,10 +38,15 @@
 /* Sidebar Container For Width Responsiveness */
 .sidebar-container {
   display: flex;
-  height: 100vh;
+ 
   flex-direction: column;
   justify-content: space-between;
   align-items: space-between;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
 }
 
 .sidebar h2 {
@@ -67,13 +72,6 @@
 .row{
   display: flex;
   flex-direction: row;
-}
-
-.spacer {
-  width: 100%;
-  margin: 10px auto;
-  height: 0.1px;
-  background: rgb(161, 25, 25);
 }
 
 @media (max-width: 650px) {

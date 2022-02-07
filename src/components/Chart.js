@@ -28,6 +28,7 @@ const Chart = () => {
       {
         label: 'Forecast',
         data: [0, 2, 10, 8, 5],
+        color: "#ffffff",
         borderColor: "#ffffff",
         pointBackgroundColor: "#130E0E",
         fill: false,

@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import { WeatherContext } from '../Context';
 import WeatherMinMax from './Weather';
-//import WeekContainer from '../WeekContainer';
-import { BiMenu } from "react-icons/bi";
-import Button from '@mui/material/Button';
-import './Sidebar.css';
 import Chart from '../Chart';
 import ForecastFetch from './ForecastFetch';
+//import WeekContainer from '../WeekContainer';
+import { BiMenu } from "react-icons/bi";
+import { CButton } from '@coreui/react';
+import '@coreui/coreui/dist/css/coreui.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import './Sidebar.css';
+
 
 const Sidebar = () => {
   const { country, temperature,  weatherCondition, dayOfWeek, date, month, year, searchCity } = React.useContext(WeatherContext);
@@ -20,13 +26,14 @@ const Sidebar = () => {
       <div className='sidebar-container'>
         <h3>Regional Weather Forecast</h3>
         <p className='dateToday'>{dateToday}</p>
-        <div><Button variant="outlined" size="small">Temperature</Button><Button variant="text" size="small">Rainfall</Button> <Button variant="text" size="small">Wind</Button></div>
+        <div className='buttonGroup'><CButton color="dark">Temperature</CButton><CButton color="light" variant="outline">Rainfall</CButton> <CButton color="light" variant="outline">Wind</CButton></div>
         <hr  className='spacer'></hr>
-        <div className='sidebar-container row'><h2>Sicily</h2><BiMenu size={25} color='#ffffff' /></div>
+        <div className='sidebar-container row'><h2>Sicily</h2><a href='' className='social-link menu'><BiMenu size={25} color='#ffffff' /></a></div>
         <div><WeatherMinMax/></div>
        <div><Chart/></div>
        <hr  className='spacer'></hr>
        <ForecastFetch/>
+       <div className='buttonGroup'><CButton color="light" variant="outline"><FontAwesomeIcon icon={faArrowLeft} /> Catania</CButton><CButton color="light" variant="outline">Taormina <FontAwesomeIcon icon={faArrowRight} /></CButton></div>
       </div>
     </aside>
   );
