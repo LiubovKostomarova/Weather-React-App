@@ -6,7 +6,7 @@ import WeatherMinMax from './Weather';
 import { BiMenu } from "react-icons/bi";
 import Button from '@mui/material/Button';
 import './Sidebar.css';
-import Chart from '../Chart';
+//import Chart from '../Chart';
 import ForecastFetch from './ForecastFetch';
 
 const Sidebar = () => {
@@ -38,7 +38,7 @@ const Sidebar = () => {
             
        <div className='spacer'></div>
 <ForecastFetch/>
-<Chart/>
+
    
        
       </div>
