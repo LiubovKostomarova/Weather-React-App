@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { WeatherContext } from '../Context';
 import WeatherFetch from './WeatherFetch';
 import  CurrentTime from './CurrentTime';
@@ -17,8 +17,8 @@ const LeftInfo = () => {
           <h2>Palermo</h2>
           <p>Sicily</p>
           <p> <CurrentTime /> </p>
-              </div>
-              </div>
+        </div>
+      </div>
     </>
   );
 };
