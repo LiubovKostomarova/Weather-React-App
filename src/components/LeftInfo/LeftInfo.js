@@ -1,15 +1,11 @@
 import React from 'react';
-import { WeatherContext } from '../Context';
 import WeatherFetch from './WeatherFetch';
 import  CurrentTime from './CurrentTime';
 import './LeftInfo.css';
 
 
 const LeftInfo = () => {
-  const { temperature, city, weatherCondition, hours, minutes, dayOfWeek, date, month, year } = React.useContext(WeatherContext);
-
- 
-  return (
+   return (
     <>
       <div className='left-info'>
         <div className='location-info'>
