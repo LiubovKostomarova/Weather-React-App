@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 function ForecastFetch() {
-  const key = process.env.REACT_APP_API_KEY;
+  const API_KEY2 = process.env.REACT_APP_FORECAST_API_KEY;
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -15,7 +15,7 @@ function ForecastFetch() {
   useEffect(() => {
     setError("")
     setIsLoading(true)
-    fetch('https://api.openweathermap.org/data/2.5/forecast/daily?q=Palermo,sicily&cnt=7&APPID=' + key + '&units=metric/404')
+    fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q=Palermo,sicily&cnt=7&APPID=${API_KEY2}&units=metric/404`)
       .then(response => {
         if (response.ok) {
           return (res => res.json())
@@ -27,7 +27,7 @@ function ForecastFetch() {
         console.log(data);
         setIsLoading(false);
         setData(data);
-        //setIconID(data.weather[0].icon);
+        setIconID(data.list.weather[0].icon);
         setTempMin(data.list.main.temp_min);
         setTempMax(data.list.main.temp_max);
       })
@@ -41,12 +41,12 @@ function ForecastFetch() {
       {error && <p>{error}</p>}
       {isLoading && <p>Loading...</p>}
       <ul>
-        <img src={"http://openweathermap.org/img/wn/" + iconID + "@2x.png"} alt='icon' />
-        <div className="Forecast__temperature">
+         <div className="Forecast__temperature">
           {data &&
-            data.map(({ dt, tempMin, tempMax }) => {
+            data.list.map(() => {
               return (
-                <div className="forecast" key={dt}>
+                <div className="forecast" >
+                  <img src={"http://openweathermap.org/img/wn/" + iconID + "@2x.png"} alt='icon' />
                   <h2>{Math.round(tempMin)} C </h2>
                   <p>{Math.round(tempMax)} C</p>
                 </div>

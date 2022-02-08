@@ -4,7 +4,6 @@ import { WeatherContext } from '../Context';
 import WeatherMinMax from './Weather';
 import Chart from '../Chart';
 import ForecastFetch from './ForecastFetch';
-//import WeekContainer from '../WeekContainer';
 import { BiMenu } from "react-icons/bi";
 import { CButton } from '@coreui/react';
 import '@coreui/coreui/dist/css/coreui.min.css';
@@ -16,8 +15,7 @@ import './Sidebar.css';
 
 
 const Sidebar = () => {
-  const { country, temperature,  weatherCondition, dayOfWeek, date, month, year, searchCity } = React.useContext(WeatherContext);
-  const [city, setCity] = useState('');
+
   let dateToday = moment().format("Do MMM YYYY");
 
   
