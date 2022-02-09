@@ -29,7 +29,7 @@ function ForecastFetch() {
             data.daily.map(() => {
               return (
                 <div className="forecast" >
-                  <img src={"http://openweathermap.org/img/wn/" + iconID + "@2x.png"} alt='icon' />
+                  <img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
                   <h2>{Math.round(tempMin)} C </h2>
                   <p>{Math.round(tempMax)} C</p>
                 </div>
