@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import { WeatherContext } from '../Context';
 import WeatherMinMax from './Weather';
-import Chart from '../Chart';
+import Chart from './Chart';
 import ForecastFetch from './ForecastFetch';
 import { BiMenu } from "react-icons/bi";
 import { CButton } from '@coreui/react';

@@ -22,22 +22,6 @@ li {
   list-style: none;
 }
 
-.py-1 {
-  padding: 10px 0;
-}
-
-.py-2 {
-  padding: 20px 0;
-}
-
-.py-3 {
-  padding: 30px 0;
-}
-
-.py-4 {
-  padding: 40px 0;
-}
-
 .container {
   position: relative;
   height: 100vh;
@@ -71,11 +55,12 @@ li {
 /* Phones */
 
 @media (max-width: 650px) {
-    
-      .sidebar {
+
+  .sidebar {
     width: 100wh;
-        position: absolute;
+    position: absolute;
     right: 0;
+    left: 0;
     backdrop-filter: blur(10px);
     top: 0;
     padding: 0 50px;
