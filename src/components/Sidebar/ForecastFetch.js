@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 function ForecastFetch() {
   const API_KEY2 = process.env.REACT_APP_FORECAST_API_KEY;
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState('');
 
-  const [tempMin, setTempMin] = useState([]);
-  const [tempMax, setTempMax] = useState([]);
-  const [iconID, setIconID] = useState([]);
+  const [tempMin, setTempMin] = useState();
+  const [tempMax, setTempMax] = useState();
+  const [iconID, setIconID] = useState();
 
   useEffect(() => {
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric/404`)
@@ -23,23 +23,19 @@ function ForecastFetch() {
   }, [])
   return (
     <>
-        
-         <div className="forecast">
+<div className="forecast">
          <ul className="forecast" >
          {data &&
             data.daily.map((list) => {
               return (
-                                  <li key={list.dt}><img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
-                  <h2>{Math.round(tempMin)} C </h2>
-                  <p>{Math.round(tempMax)} C</p>
-                  </li>
-               
-
+                <li key={list.dt}><img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
+                  <p>{Math.round(tempMin)} C </p>
+                  <p>{Math.round(tempMax)} C </p>
+                </li>
               );
             })}
  </ul>
-        </div>
-      
+</div>  
     </>
   )
 }
