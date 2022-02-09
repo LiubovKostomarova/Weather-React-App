@@ -5,19 +5,11 @@ function ForecastFetch() {
 
   const [data, setData] = useState('');
 
-  const [tempMin, setTempMin] = useState();
-  const [tempMax, setTempMax] = useState();
-  const [iconID, setIconID] = useState();
-
   useEffect(() => {
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric/404`)
       .then(res=>res.json())
         .then(data => {
-        console.log(data);
         setData(data);
-        setIconID(data.daily.weather[0].icon);
-        setTempMin(data.daily.temp.min);
-        setTempMax(data.daily.temp.max);
       })
       
   }, [])
@@ -26,11 +18,10 @@ function ForecastFetch() {
 <div className="forecast">
          <ul className="forecast" >
          {data &&
-            data.daily.map((list) => {
+            data.daily.map((item) => {
               return (
-                <li key={list.dt}><img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
-                  <p>{Math.round(tempMin)} C </p>
-                  <p>{Math.round(tempMax)} C </p>
+                <li key={item.dt}><img src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
+                {Math.round(item.tempMin)} ° C - {Math.round(item.tempMax)} ° C
                 </li>
               );
             })}
