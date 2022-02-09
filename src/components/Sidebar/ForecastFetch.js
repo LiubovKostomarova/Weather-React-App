@@ -3,19 +3,63 @@ import React, { useState, useEffect } from "react";
 function ForecastFetch() {
   const API_KEY2 = process.env.REACT_APP_FORECAST_API_KEY;
 
+  const [data, setData] = useState(null);
+
+  const [tempMin, setTempMin] = useState();
+  const [tempMax, setTempMax] = useState();
+  const [iconID, setIconID] = useState();
+
+  useEffect(() => {
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric/404`)
+      .then(res=>res.json())
+        .then(data => {
+        console.log(data);
+        setData(data);
+        setIconID(data.daily.weather[0].icon);
+        setTempMin(data.daily.temp.min);
+        setTempMax(data.daily.temp.max);
+      })
+      
+  }, [])
+  return (
+    <>
+        
+         <div className="forecast">
+         <div> {data &&
+            data.daily.map(() => {
+              return (
+                <div className="forecast" >
+                  <img src={"http://openweathermap.org/img/wn/" + iconID + "@2x.png"} alt='icon' />
+                  <h2>{Math.round(tempMin)} C </h2>
+                  <p>{Math.round(tempMax)} C</p>
+                </div>
+
+              );
+            })}
+</div>
+        </div>
+      
+    </>
+  )
+}
+export default ForecastFetch;
+
+/*function ForecastFetch() {
+  const API_KEY2 = process.env.REACT_APP_FORECAST_API_KEY;
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
   const [data, setData] = useState(null);
 
-  const [tempMin, setTempMin] = useState([]);
-  const [tempMax, setTempMax] = useState([]);
-  const [iconID, setIconID] = useState([]);
+  const [tempMin, setTempMin] = useState();
+  const [tempMax, setTempMax] = useState();
+  const [iconID, setIconID] = useState();
 
   useEffect(() => {
     setError("")
     setIsLoading(true)
-    fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q=Palermo,sicily&cnt=7&APPID=${API_KEY2}&units=metric/404`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric/404`)
       .then(response => {
         if (response.ok) {
           return (res => res.json())
@@ -27,9 +71,9 @@ function ForecastFetch() {
         console.log(data);
         setIsLoading(false);
         setData(data);
-        setIconID(data.list.weather[0].icon);
-        setTempMin(data.list.main.temp_min);
-        setTempMax(data.list.main.temp_max);
+        setIconID(data.daily.weather[0].icon);
+        setTempMin(data.daily.temp.min);
+        setTempMax(data.daily.temp.max);
       })
       .catch(error => {
         setError(error.message);
@@ -43,7 +87,7 @@ function ForecastFetch() {
       <ul>
          <div className="Forecast__temperature">
           {data &&
-            data.list.map(() => {
+            data.daily.map(() => {
               return (
                 <div className="forecast" >
                   <img src={"http://openweathermap.org/img/wn/" + iconID + "@2x.png"} alt='icon' />
@@ -59,4 +103,4 @@ function ForecastFetch() {
     </>
   )
 }
-export default ForecastFetch;
+export default ForecastFetch;*/
