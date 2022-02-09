@@ -5,9 +5,9 @@ function ForecastFetch() {
 
   const [data, setData] = useState(null);
 
-  const [tempMin, setTempMin] = useState();
-  const [tempMax, setTempMax] = useState();
-  const [iconID, setIconID] = useState();
+  const [tempMin, setTempMin] = useState([]);
+  const [tempMax, setTempMax] = useState([]);
+  const [iconID, setIconID] = useState([]);
 
   useEffect(() => {
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric/404`)
@@ -25,18 +25,19 @@ function ForecastFetch() {
     <>
         
          <div className="forecast">
-         <div> {data &&
-            data.daily.map(() => {
+         <ul className="forecast" >
+         {data &&
+            data.daily.map((list) => {
               return (
-                <div className="forecast" >
-                  <img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
+                                  <li key={list.dt}><img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
                   <h2>{Math.round(tempMin)} C </h2>
                   <p>{Math.round(tempMax)} C</p>
-                </div>
+                  </li>
+               
 
               );
             })}
-</div>
+ </ul>
         </div>
       
     </>
