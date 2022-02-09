@@ -19,7 +19,7 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=Palermo,sicily&APPID=${
 },[])
 return (
     <>
-    <img src={"http://openweathermap.org/img/wn/" + iconID + ".png" } alt= 'weather_icon'/>{Math.round(minTemp)}° C - {Math.round(maxTemp)} ° C
+    <img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="weather_icon2" className="weather_icon" alt= 'weather_icon'/>{Math.round(minTemp)}° C - {Math.round(maxTemp)} ° C
        </>
 )
 }
