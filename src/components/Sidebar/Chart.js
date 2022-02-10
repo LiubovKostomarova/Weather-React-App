@@ -51,8 +51,7 @@ const Chart = () => {
         }
       }}
       data={lineChartData}
-      
-    />
+        />
   );
 };
 export default Chart;
