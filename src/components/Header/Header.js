@@ -1,6 +1,6 @@
 import React from 'react';
 import { BiMenuAltLeft } from "react-icons/bi";
-import './Header.css';
+import './Header.scss';
 
 
 const Header = () => {

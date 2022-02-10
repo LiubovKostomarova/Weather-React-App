@@ -1,7 +1,7 @@
 import React from 'react';
 import WeatherFetch from './WeatherFetch';
 import  CurrentTime from './CurrentTime';
-import './LeftInfo.css';
+import './LeftInfo.scss';
 
 
 const LeftInfo = () => {

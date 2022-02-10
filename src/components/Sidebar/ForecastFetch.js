@@ -6,7 +6,7 @@ function ForecastFetch() {
   const [data, setData] = useState('');
 
   useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric/404`)
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric`)
       .then(res=>res.json())
         .then(data => {
         setData(data);
