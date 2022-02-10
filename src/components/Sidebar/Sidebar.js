@@ -25,9 +25,9 @@ const Sidebar = () => {
         <p className='dateToday'>{dateToday}</p>
         <div className='buttonGroup'><CButton color="dark">Temperature</CButton><CButton color="light" variant="outline">Rainfall</CButton> <CButton color="light" variant="outline">Wind</CButton></div>
         <hr  className='spacer'></hr>
-        <div className='sidebar-container row'><h2>Sicily</h2><a href='' className='social-link menu'><BiMenu size={25} color='#ffffff' /></a></div>
+        <div className='sidebar-container_row'><h2>Sicily</h2><a href='' className='social-link menu'><BiMenu size={25} color='#ffffff' /></a></div>
         <div><WeatherMinMax/></div>
-       <div><Chart/></div>
+       <div className="chart"><Chart/></div>
        <hr  className='spacer'></hr>
        <ForecastFetch/>
        <div className='buttonGroup'><CButton color="light" variant="outline"><FontAwesomeIcon icon={faArrowLeft} /> Catania</CButton><CButton color="light" variant="outline">Taormina <FontAwesomeIcon icon={faArrowRight} /></CButton></div>

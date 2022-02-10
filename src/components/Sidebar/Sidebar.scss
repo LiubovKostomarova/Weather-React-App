@@ -68,15 +68,22 @@
 
 }
 
-.row {
+.sidebar-container_row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.chart {
+  margin-top: 50px;
 }
 
 .forecast {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .forecast_body {
