@@ -3,33 +3,42 @@ import React, { useState, useEffect } from "react";
 function ForecastFetch() {
   const API_KEY2 = process.env.REACT_APP_FORECAST_API_KEY;
 
-  const [data, setData] = useState('');
+  const [data, setData] = useState("");
 
   useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric`)
-      .then(res=>res.json())
-        .then(data => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric`
+    )
+      .then((res) => res.json())
+      .then((data) => {
         setData(data);
-      })
-      
-  }, [])
+      });
+  }, []);
   return (
     <>
-<div className="forecast">
-         <ul className="forecast_body">
-         {data &&
+      <div className="forecast">
+        <ul className="forecast_body">
+          {data &&
             data.daily.map((item) => {
               return (
                 <li key={item.dt} className="forecast_column">
-                  <img src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
-                <div>{Math.round(item.temp.min)} ° - {Math.round(item.temp.max)} °</div>
+                  <img
+                    src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`}
+                    alt="forecast_icon"
+                    className="weather_icon"
+                    alt="weather_icon"
+                  />
+                  <div>
+                    {Math.round(item.temp.min)} ° - {Math.round(item.temp.max)}{" "}
+                    °
+                  </div>
                 </li>
               );
             })}
- </ul>
-</div>  
+        </ul>
+      </div>
     </>
-  )
+  );
 }
 export default ForecastFetch;
 

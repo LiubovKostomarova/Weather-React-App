@@ -35,7 +35,7 @@ li {
 
 @media (max-width: 930px) {
   body {
-    background: url('./images/background-middle.jpg') no-repeat center center/cover;
+    background: url("./images/background-middle.jpg") no-repeat center center/cover;
   }
 
   .left-info {
@@ -55,7 +55,6 @@ li {
 /* Phones */
 
 @media (max-width: 650px) {
-
   .sidebar {
     width: 100wh;
     position: absolute;
@@ -66,5 +65,4 @@ li {
     padding: 0 50px;
     color: var(--sidebar-primary);
   }
-
 }

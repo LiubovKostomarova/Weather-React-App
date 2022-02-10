@@ -9,9 +9,9 @@ import {
   Title,
   Tooltip,
   Legend,
-  } from 'chart.js';
-  
-  ChartJS.register(
+} from "chart.js";
+
+ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
@@ -19,22 +19,22 @@ import {
   Title,
   Tooltip,
   Legend
-  );
+);
 
 const Chart = () => {
   const lineChartData = {
     labels: ["6:00 am", "10:00 am", "12:00 am", "6:00 pm", "10:00 pm"],
     datasets: [
       {
-        label: 'Forecast',
+        label: "Forecast",
         data: [0, 2, 10, 8, 5],
         color: "#ffffff",
         borderColor: "#ffffff",
         pointBackgroundColor: "#130E0E",
         fill: false,
-        tension: 0.6
-      }
-    ]
+        tension: 0.6,
+      },
+    ],
   };
 
   return (
@@ -47,11 +47,11 @@ const Chart = () => {
           display: false,
         },
         legend: {
-          display: false, 
-        }
+          display: false,
+        },
       }}
       data={lineChartData}
-        />
+    />
   );
 };
 export default Chart;

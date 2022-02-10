@@ -1,13 +1,16 @@
-import React from 'react';
-import moment from 'moment';
+import React from "react";
+import moment from "moment";
 
 export default function CurrentTime() {
   let time = new Date().toLocaleTimeString();
   let [currentTime, changeTime] = React.useState(time);
-  let date = moment().format('dddd Do MMMM, YYYY');
+  let date = moment().format("dddd Do MMMM, YYYY");
 
   function checkTime() {
-    time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    time = new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
     changeTime(time);
   }
 
@@ -15,7 +18,9 @@ export default function CurrentTime() {
 
   return (
     <div>
-      <p>{currentTime} - {date}</p>
-          </div>
+      <p>
+        {currentTime} - {date}
+      </p>
+    </div>
   );
 }
