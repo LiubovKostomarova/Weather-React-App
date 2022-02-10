@@ -16,12 +16,13 @@ function ForecastFetch() {
   return (
     <>
 <div className="forecast">
-         <ul className="forecast" >
+         <ul className="forecast_body">
          {data &&
             data.daily.map((item) => {
               return (
-                <li key={item.dt}><img src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
-                {Math.round(item.tempMin)} ° C - {Math.round(item.tempMax)} ° C
+                <li key={item.dt} className="forecast_column">
+                  <img src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="forecast_icon" className="weather_icon" alt= 'weather_icon'/>
+                <div>{Math.round(item.temp.min)} ° - {Math.round(item.temp.max)} °</div>
                 </li>
               );
             })}

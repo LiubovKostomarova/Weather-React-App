@@ -75,8 +75,14 @@
 
 .forecast {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.forecast_body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 @media (max-width: 650px) {
