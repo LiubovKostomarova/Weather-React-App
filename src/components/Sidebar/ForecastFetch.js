@@ -5,6 +5,21 @@ function ForecastFetch() {
 
   const [data, setData] = useState("");
 
+  var days = [
+    'Sun',
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat'
+  ];
+  for (var i = 0; i < 8; i++) {
+  var d = new Date();
+  var n = d.getDay();
+  console.log(days[n]);
+  }
+
   useEffect(() => {
     fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=37.8167&lon=13.5833&exclude=current,hourly,minutely,alerts&APPID=${API_KEY2}&units=metric`
@@ -18,10 +33,12 @@ function ForecastFetch() {
     <>
       <div className="forecast">
         <ul className="forecast_body">
+        
           {data &&
             data.daily.map((item) => {
               return (
                 <li key={item.dt} className="forecast_column">
+                  <div>{days[n]}</div>
                   <img
                     src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`}
                     alt="forecast_icon"
